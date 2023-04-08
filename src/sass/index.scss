@@ -1,2 +1,39 @@
 @import './common';
 @import './example';
+
+body {
+  // background: -webkit-linear-gradient(90deg, #409d8e, #0093da, #ad57d1);
+  // background: linear-gradient(90deg, #409d8e, #0093da, #ad57d1);
+
+  background-color: #555454;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.photo-card {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 400px;
+  height: auto;
+}
+.is-hidden {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+.load-more {
+  // display: block;
+  // justify-content: center;
+  // align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgb(0, 0, 0);
+  background-color: aqua;
+}

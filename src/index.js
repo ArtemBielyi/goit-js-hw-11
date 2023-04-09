@@ -22,7 +22,7 @@ formEl.addEventListener('submit', onSearch);
 
 loadMorebtnEl.addEventListener('click', onLoadBtn);
 
-loadMorebtnEl.classList.add('is-hidden');
+//
 
 async function onSearch(evt) {
   evt.preventDefault();
@@ -32,9 +32,7 @@ async function onSearch(evt) {
   if (!pixabayAPI.q) {
     divEl.innerHTML = '';
     loadMorebtnEl.classList.add('is-hidden');
-    Notiflix.Notify.warning(
-      `The field cannot be empty. Please enter a search query`
-    );
+    Notiflix.Notify.warning(`What should we search for?`);
     return;
   }
   // loadMorebtnEl.classList.add('is-hidden');
@@ -54,14 +52,16 @@ async function onSearch(evt) {
       Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images`);
       divEl.innerHTML = markupImg(data.hits);
       lightbox.refresh();
-      // loadMorebtnEl.classList.add('is-hidden');
+      // loadMorebtnEl.classList.remove('is-hidden');
+      loadMorebtnEl.classList.add('is-hidden');
+
       return;
     }
 
     Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images`);
-    loadMorebtnEl.classList.remove('is-hidden');
-    divEl.innerHTML = markupImg(data.hits);
     // loadMorebtnEl.classList.remove('is-hidden');
+    divEl.innerHTML = markupImg(data.hits);
+    loadMorebtnEl.classList.remove('is-hidden');
     lightbox.refresh();
   } catch (err) {
     loadMorebtnEl.classList.add('is-hiden');
